@@ -5,27 +5,21 @@ interface LeftPanelProps {
 }
 
 const LeftPanel: FC<LeftPanelProps> = ({ rows }) => {
-      const obj = {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "5": "5",
-        "6": "6",
-        "7": "7",
-        "8": "8",
-        "9": "9",
-        "0": "0",
-        ".": ".",
-      };
+  const columns: number = 3;
+  const a = [
+    ["9", "8", "7"],
+    ["6", "5", "4"],
+    ["3", "2", "1"],
+    ["0", ".", "AC"],
+  ];
   const arr: number[] = [];
   for (let i = 0; i < rows; i++) {
     arr.push(i);
   }
   return (
     <div className="leftPanel">
-      {arr.map((e) => (
-        <NumbersRow columns={3} />
+      {arr.map((e, i) => (
+        <NumbersRow columns={columns} rowNumbers={a[i]} />
       ))}
     </div>
   );

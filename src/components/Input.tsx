@@ -1,11 +1,11 @@
-import React,{FC} from 'react';
+import React, { FC } from "react";
 
 interface InputProps {
-    
+  output: string;
 }
- 
-const Input: FC<InputProps> = () => {
-    return (<div className="input">0</div>);
-}
- 
+
+const Input: FC<InputProps> = ({ output }) => {
+  return <div className="input">{output}</div>;
+};
+
 export default Input;

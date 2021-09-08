@@ -3,19 +3,18 @@ import Button from "./Button";
 
 interface NumbersRowProps {
   columns: number;
+  rowNumbers: string[];
 }
 
-const NumbersRow: FC<NumbersRowProps> = ({ columns }) => {
+const NumbersRow: FC<NumbersRowProps> = ({ columns, rowNumbers }) => {
   const arr: number[] = [];
   for (let i: number = 0; i < columns; i++) {
     arr.push(i);
   }
-
-  console.log(arr);
   return (
     <div className="numbers">
-      {arr.map(() => (
-        <Button />
+      {arr.map((e, i) => (
+        <Button value={rowNumbers[i]} />
       ))}
     </div>
   );

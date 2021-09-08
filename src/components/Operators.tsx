@@ -1,14 +1,17 @@
 import React, { FC } from "react";
+import Operator from "./Operator";
 
-interface OperatorsProps {}
+interface OperatorsProps {
+  getChar: (char: string) => string;
+}
 
-const Operators: FC<OperatorsProps> = () => {
+const Operators: FC<OperatorsProps> = ({ getChar }) => {
+  const a: string[] = ["+", "-", "*", "/"];
   return (
     <div className="operators">
-      <div>+</div>
-      <div>-</div>
-      <div>*</div>
-      <div>/</div>
+      {a.map((e, i) => (
+        <Operator getCharHandler={getChar} key={i} value={e} />
+      ))}
     </div>
   );
 };
