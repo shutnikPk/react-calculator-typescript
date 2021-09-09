@@ -2,9 +2,10 @@ import React, { FC } from "react";
 import NumbersRow from "./NumbersRow";
 interface LeftPanelProps {
   rows: number;
+  getChar: (char: string) => void;
 }
 
-const LeftPanel: FC<LeftPanelProps> = ({ rows }) => {
+const LeftPanel: FC<LeftPanelProps> = ({ rows, getChar }) => {
   const columns: number = 3;
   const a = [
     ["9", "8", "7"],
@@ -19,7 +20,12 @@ const LeftPanel: FC<LeftPanelProps> = ({ rows }) => {
   return (
     <div className="leftPanel">
       {arr.map((e, i) => (
-        <NumbersRow columns={columns} rowNumbers={a[i]} />
+        <NumbersRow
+          key={i}
+          getChar={getChar}
+          columns={columns}
+          rowNumbers={a[i]}
+        />
       ))}
     </div>
   );
